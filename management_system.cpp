@@ -26,20 +26,29 @@ struct item *init = NULL;
 item *node_baru()
 {
     item *baru = new item;
-    cout << "---------------------------------" << endl;
+    cout << "------------------------------------------------";
+    cout << "-----------------------------------------------------\t\t" << endl;
     cout << "Silakan input ID Item : " << endl;
     cin >> baru->id_item;
-    cout << "---------------------------------" << endl;
+
+    cout << "------------------------------------------------";
+    cout << "-----------------------------------------------------\t\t" << endl;
+
     cout << "Silakan input Nama Item : " << endl;
     cin >> baru->nama;
-    cout << "---------------------------------" << endl;
+
+    cout << "------------------------------------------------";
+    cout << "-----------------------------------------------------\t\t" << endl;
+
     cout << "Silakan input Kuantitas Item : " << endl;
     cin >> baru->banyak;
-    cout << "---------------------------------" << endl;
+
+    cout << "------------------------------------------------";
+    cout << "-----------------------------------------------------\t\t" << endl;
+
     cout << "Silakan input Harga Item : " << endl;
-    cout << "---------------------------------" << endl;
     cin >> baru->harga;
-    cout << "---------------------------------" << endl;
+
     baru->next = NULL;
     baru->prev = NULL;
 }
@@ -47,19 +56,23 @@ item *node_baru()
 customer *new_node()
 {
     customer *customer_baru = new customer;
-    cout << "---------------------------------" << endl;
+    cout << "------------------------------------------------";
+    cout << "-----------------------------------------------------\t\t" << endl;
     cout << "Silakan input id anda : " << endl;
     cin >> customer_baru->id_customer;
-    cout << "---------------------------------" << endl;
+    cout << "------------------------------------------------";
+    cout << "-----------------------------------------------------\t\t" << endl;
     cout << "Silakan input nama anda : " << endl;
     cin >> customer_baru->nama;
-    cout << "---------------------------------" << endl;
+    cout << "------------------------------------------------";
+    cout << "-----------------------------------------------------\t\t" << endl;
     cout << "Silakan input tanggal kedatangan anda (contoh: 19_Agustus)" << endl;
     cin >> customer_baru->tanggal;
-    cout << "---------------------------------" << endl;
+    cout << "------------------------------------------------";
+    cout << "-----------------------------------------------------\t\t" << endl;
     cout << "Silakan input waktu kedatangan anda : " << endl;
     cin >> customer_baru->waktu;
-    cout << "---------------------------------" << endl;
+
     customer_baru->next = NULL;
 }
 
@@ -174,17 +187,21 @@ void deleteByID()
         if (deleteitemID->id_item == ID)
         {
             init = init->next;
-            cout << "---------------------------------" << endl;
+            cout << "------------------------------------------------";
+            cout << "-----------------------------------------------------\t\t" << endl;
             cout << "Data berhasil dihapus" << endl;
-            cout << "---------------------------------" << endl;
+            cout << "------------------------------------------------";
+            cout << "-----------------------------------------------------\t\t" << endl;
             free(deleteitemID);
         }
     }
     else
     {
-        cout << "---------------------------------" << endl;
+        cout << "------------------------------------------------";
+        cout << "-----------------------------------------------------\t\t" << endl;
         cout << "Item masih kosong" << endl;
-        cout << "---------------------------------" << endl;
+        cout << "------------------------------------------------";
+        cout << "-----------------------------------------------------\t\t" << endl;
     }
 }
 
@@ -248,22 +265,23 @@ void beliItem()
         {
             if (traverse != NULL)
             {
+                cout << "\t\t----------------- DATABASE ITEM ---------------------\t\t" << endl;
                 while (traverse != NULL)
                 {
-                    cout << "---------------------------------" << endl;
+                    cout << "------------------------------------------------";
+                    cout << "-----------------------------------------------------\t\t" << endl;
                     cout << "Product ID: " << traverse->id_item << endl;
                     cout << "Product Name: " << traverse->nama << endl;
                     cout << "Quantity: " << traverse->banyak << endl;
                     cout << "Price: " << traverse->harga << endl;
                     traverse = traverse->next;
-                    cout << "---------------------------------" << endl;
+                    cout << "------------------------------------------------";
+                    cout << "-----------------------------------------------------\t\t" << endl;
                 }
             }
             else
             {
-                cout << "---------------------------------" << endl;
-                cout << "Tidak ada item yang tersedia :(" << endl;
-                cout << "---------------------------------" << endl;
+                cout << "\t\t----------------- SELAMAT DATANG DI AGRISTORE ---------------------\t\t" << endl;
             }
 
             cout << "pilih ID Item:" << endl;
@@ -292,19 +310,22 @@ void beliItem()
             }
         }
 
-        cout << "--------------------" << endl;
+        cout << "------------------------------------------------";
+        cout << "-----------------------------------------------------\t\t" << endl;
         cout << "Barang yang anda beli adalah: " << endl;
         for (int i = 0; i < opr; i++)
         {
             cout << produk[i] << endl;
         }
 
-        cout << "---------------------------------" << endl;
+        cout << "------------------------------------------------";
+        cout << "-----------------------------------------------------\t\t" << endl;
         for (int i = 0; i < opr; i++)
         {
             cout << "Total Harga Semua Item adalah : Rp." << total[i] << endl;
         }
-        cout << "---------------------------------" << endl;
+        cout << "------------------------------------------------";
+        cout << "-----------------------------------------------------\t\t" << endl;
     }
 }
 
@@ -315,22 +336,29 @@ void showItem()
     traverse = init;
     if (traverse != NULL)
     {
+        cout << "\t\t----------------- DATABASE ITEM ---------------------\t\t" << endl;
         while (traverse != NULL)
         {
-            cout << "---------------------------------" << endl;
-            cout << "Product ID: " << traverse->id_item << endl;
-            cout << "Product Name: " << traverse->nama << endl;
-            cout << "Quantity: " << traverse->banyak << endl;
-            cout << "Price: " << traverse->harga << endl;
+            cout << "------------------------------------------------";
+            cout << "-----------------------------------------------------\t\t" << endl;
+            cout << "\nPRODUCT ID\t"
+                 << "PRODUCT NAME\t"
+                 << "QUANTITY\t"
+                 << "PRICE" << endl;
+            cout << traverse->id_item << "\t\t";
+            cout << traverse->nama << "\t\t";
+            cout << traverse->banyak << "\t\t";
+            cout << traverse->harga << endl;
             traverse = traverse->next;
-            cout << "---------------------------------" << endl;
+            cout << "------------------------------------------------";
+            cout << "-----------------------------------------------------\t\t" << endl;
+            cout << endl;
         }
     }
     else
     {
-        cout << "---------------------------------" << endl;
-        cout << "Tidak ada item yang tersedia :(" << endl;
-        cout << "---------------------------------" << endl;
+        cout << "\t\t----------------- TIDAK ADA ITEM DI DATABASE ---------------------\t\t" << endl;
+        cout << endl;
     }
 }
 
@@ -339,20 +367,26 @@ void showCustomer()
     customer *traverse = customer_init;
     if (traverse == NULL)
     {
-        cout << "---------------------------------" << endl;
-        cout << "Belum ada pengunjung :(" << endl;
-        cout << "---------------------------------" << endl;
+        cout << "\t\t----------------- BELUM ADA PENGUNJUNG ---------------------\t\t" << endl;
     }
     else
     {
+        cout << "\t\t----------------- DATA PENGUNJUNG ---------------------\t\t" << endl;
         while (traverse != NULL)
         {
-            cout << "---------------------------------" << endl;
-            cout << "Customer ID: " << traverse->id_customer << endl;
-            cout << "Customer Name: " << traverse->nama << endl;
-            cout << "Customer Register: " << traverse->tanggal << " , " << traverse->waktu << endl;
+            cout << "------------------------------------------------";
+            cout << "-----------------------------------------------------\t\t" << endl;
+            cout << "\nCustomer ID\t"
+                 << "Customer Name\t"
+                 << "Tanggal" << "\t"
+                 << "Jam" << endl;
+            cout << traverse->id_customer << "\t\t";
+            cout << traverse->nama << "\t\t";
+            cout << traverse->tanggal << "\t\t";
+            cout << traverse->waktu << endl;
             traverse = traverse->next;
-            cout << "---------------------------------" << endl;
+            cout << "------------------------------------------------";
+            cout << "-----------------------------------------------------\t\t" << endl;
         }
     }
 }
@@ -362,19 +396,19 @@ void showHarga()
     customer *traverseHarga = customer_init;
     if (traverseHarga == NULL)
     {
-        cout << "---------------------------------" << endl;
-        cout << "Belum ada pembeli :(" << endl;
-        cout << "---------------------------------" << endl;
+        cout << "\t\t----------------- BELUM ADA PEMBELI ---------------------\t\t" << endl;
     }
     else
     {
         while (traverseHarga != NULL)
         {
-            cout << "---------------------------------" << endl;
+            cout << "------------------------------------------------";
+            cout << "-----------------------------------------------------\t\t" << endl;
             cout << "Customer ID: " << traverseHarga->harga << endl;
             cout << "Total Beli: " << traverseHarga->harga << endl;
             traverseHarga = traverseHarga->next;
-            cout << "---------------------------------" << endl;
+            cout << "------------------------------------------------";
+            cout << "-----------------------------------------------------\t\t" << endl;
         }
     }
 }
@@ -382,26 +416,33 @@ void showHarga()
 void searchItem()
 {
     string nama;
-    cout << "Silakan cari produk yang anda inginkan di sini: " << endl;
-    cin >> nama;
     int temp = 0;
     struct item *src = init;
-    while (src != NULL)
+    if (src == NULL)
     {
-        if (nama == src->nama)
-        {
-            temp = 1;
-            break;
-        }
-        src = src->next;
-    }
-    if (temp == 1)
-    {
-        cout << "Produk tersedia di katalog" << endl;
+        cout << "\t\t----------------- TIDAK ADA ITEM DI DATABASE ---------------------\t\t" << endl;
     }
     else
     {
-        cout << "Produk tidak tersedia saat ini" << endl;
+        while (src != NULL)
+        {
+            cout << "Silakan cari produk yang anda inginkan di sini: " << endl;
+            cin >> nama;
+            if (nama == src->nama)
+            {
+                temp = 1;
+                break;
+            }
+            src = src->next;
+        }
+        if (temp == 1)
+        {
+            cout << "Produk tersedia di katalog" << endl;
+        }
+        else
+        {
+            cout << "Produk tidak tersedia saat ini" << endl;
+        }
     }
 }
 
@@ -411,25 +452,33 @@ int main()
     int role;
     do
     {
+        cout << endl;
+        cout << "\t\t----------------- SELAMAT DATANG DI AGRISTORE ---------------------\t\t" << endl;
     menu_choice:
         cout << "1. ADMIN" << endl;
         cout << "2. EMPLOYEE" << endl;
         cout << "3. CUSTOMER" << endl;
         cout << "4. Exit" << endl;
+        cout << "------------------------------------------------";
+        cout << "-----------------------------------------------------\t\t" << endl;
         cout << "choice: ";
         cin >> role;
+
         switch (role)
         {
         case 1:
         admin_choice:
-            cout << "---------------------------------" << endl;
-            cout << "1. ADD ITEM" << endl;
-            cout << "2. SHOW TOTAL BELI" << endl;
-            cout << "3. SHOW ITEM" << endl;
-            cout << "4. SHOW CUSTOMER" << endl;
-            cout << "5. SEARCH ITEM" << endl;
-            cout << "6. DELETE ITEM ID" << endl;
-            cout << "7. MAIN MENU" << endl;
+            cout << "------------------------------------------------";
+            cout << "-----------------------------------------------------\t\t" << endl;
+            cout << "1. Tambah Item Ke Database" << endl;
+            cout << "2. Cetak Total Beli" << endl;
+            cout << "3. Cetak Item yang tersedia pada Database" << endl;
+            cout << "4. Cetak Data Customer" << endl;
+            cout << "5. Cari Item pada Database" << endl;
+            cout << "6. Hapus item" << endl;
+            cout << "7. Return" << endl;
+            cout << "------------------------------------------------";
+            cout << "-----------------------------------------------------\t\t" << endl;
             cout << "choice: ";
             cin >> option;
             switch (option)
@@ -472,10 +521,12 @@ int main()
         case 2:
         employee_choice:
             cout << endl;
-            cout << "---------------------------------" << endl;
-            cout << "1. SHOW ITEM" << endl;
-            cout << "2. SEARCH" << endl;
-            cout << "3. MAIN MENU" << endl;
+            cout << "------------------------------------------------";
+            cout << "-----------------------------------------------------\t\t" << endl;
+            cout << "1. Cetak item pada database" << endl;
+            cout << "2. Return" << endl;
+            cout << "------------------------------------------------";
+            cout << "-----------------------------------------------------\t\t" << endl;
             cout << "choice: ";
             cin >> option;
             switch (option)
@@ -486,20 +537,19 @@ int main()
                 goto employee_choice;
                 break;
             case 2:
-                // searchItem();
-                goto employee_choice;
-                break;
-            case 3:
                 cout << endl;
                 goto menu_choice;
                 break;
             }
         case 3:
         customer_choice:
-            cout << "---------------------------------" << endl;
-            cout << "1. ADD CUSTOMER" << endl;
-            cout << "2. BUY" << endl;
-            cout << "3. MAIN MENU" << endl;
+            cout << "------------------------------------------------";
+            cout << "-----------------------------------------------------\t\t" << endl;
+            cout << "1. Tambah ID Customer" << endl;
+            cout << "2. Beli barang" << endl;
+            cout << "3. Return" << endl;
+            cout << "------------------------------------------------";
+            cout << "-----------------------------------------------------\t\t" << endl;
             cout << "choice: ";
             cin >> option;
             switch (option)
